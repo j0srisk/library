@@ -7,15 +7,33 @@
     <title>Library</title>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="app.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Library</h1>
     </header>
     <main>
-        Main
     </main>
-    <ion-icon name="add-outline" id="add-button"></ion-icon>
+    <ion-icon name="add-outline" id="show-modal-button"></ion-icon>
+    <div class="modal" id="modal">
+        <div class="modal-card">
+            <h2>Add Book</h2>
+            <form id="form">
+                <div class="input">
+                    <p>Title:</p>
+                    <input type="text" id="title" name="title" required>
+                    <p>Author:</p>
+                    <input type="text" id="author" name="author" required>
+                    <p>Pages:</p>
+                    <input type="number" id="pages" name="pages" required>
+                    <p>Read:</p>
+                    <input type="checkbox" id="read" name="read">
+                    <button type="submit" id="add-book-button">Add Book</button>
+                </div>
+            </form>
+        </div>
+    </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
