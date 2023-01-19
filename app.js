@@ -12,6 +12,17 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+Book.prototype.toggleRead = function () {
+  const currentBook = myLibrary[this.getAttribute("book-id")];
+  if (currentBook.read === true) {
+    currentBook.read = false;
+  } else {
+    currentBook.read = true;
+  }
+
+  this.previousElementSibling.innerHTML = `Read: ${currentBook.read}`;
+};
+
 function addBookCard(Book) {
   const cardDiv = document.createElement("div");
   cardDiv.className = "card";
@@ -35,7 +46,7 @@ function addBookCard(Book) {
   readButton.setAttribute("book-id", myLibrary.indexOf(Book));
   const readButtonText = document.createTextNode("Toggle Read");
 
-  readButton.addEventListener("click", toggleRead);
+  readButton.addEventListener("click", Book.toggleRead);
 
   bookTitle.appendChild(bookTitleText);
   cardDiv.appendChild(bookTitle);
@@ -48,16 +59,6 @@ function addBookCard(Book) {
   readButton.appendChild(readButtonText);
   cardDiv.appendChild(readButton);
   main.appendChild(cardDiv);
-}
-
-function toggleRead(event) {
-  if (myLibrary[event.target.getAttribute("book-id")].read === true) {
-    myLibrary[event.target.getAttribute("book-id")].read = false;
-  } else {
-    myLibrary[event.target.getAttribute("book-id")].read = true;
-  }
-  console.log(myLibrary[event.target.getAttribute("book-id")].read);
-  event.target.previousElementSibling.innerHTML = (`Read: ${myLibrary[event.target.getAttribute("book-id")].read}`);
 }
 
 function addBookToLibrary(Book) {
