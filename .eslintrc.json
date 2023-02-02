@@ -12,6 +12,7 @@
     },
     "rules": {
         "no-console": "off",
+        "max-classes-per-file": false,
         "quotes": [
             "error",
             "double"
